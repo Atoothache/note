@@ -1,0 +1,1123 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>设计模式之策略模式 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="控制反转与依赖注入原则.html" />
+    
+    
+    <link rel="prev" href="菜鸟教程设计模式.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Spring/静态变量注入bean.html">
+            
+                <a href="../Spring/静态变量注入bean.html">
+            
+                    
+                    静态变量注入bean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Spring/SpringMVC拦截器原理.html">
+            
+                <a href="../Spring/SpringMVC拦截器原理.html">
+            
+                    
+                    SpringMVC 拦截器原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Spring/SpringSecurity入门原理及实战.html">
+            
+                <a href="../Spring/SpringSecurity入门原理及实战.html">
+            
+                    
+                    Spring Security 入门原理及实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Java/注解的本质.html">
+            
+                <a href="../Java/注解的本质.html">
+            
+                    
+                    注解的本质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Java/反射.html">
+            
+                <a href="../Java/反射.html">
+            
+                    
+                    反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Java/Java异常处理.html">
+            
+                <a href="../Java/Java异常处理.html">
+            
+                    
+                    Java异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Java/Java IO：阻塞非阻塞式IO、同步异步IO.html">
+            
+                <a href="../Java/Java IO：阻塞非阻塞式IO、同步异步IO.html">
+            
+                    
+                    Java IO：阻塞非阻塞式IO、同步异步IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    搜索引擎
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    es
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../搜索引擎/es/Elasticsearch 入门 _bulk 批量导入数据.html">
+            
+                <a href="../搜索引擎/es/Elasticsearch 入门 _bulk 批量导入数据.html">
+            
+                    
+                    Elasticsearch入门_bulk 批量导入数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../搜索引擎/es/Elasticsearch内核解析 - 数据模型篇.html">
+            
+                <a href="../搜索引擎/es/Elasticsearch内核解析 - 数据模型篇.html">
+            
+                    
+                    Elasticsearch内核解析-数据模型篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../搜索引擎/es/es 更新延迟问题.html">
+            
+                <a href="../搜索引擎/es/es 更新延迟问题.html">
+            
+                    
+                    es更新延迟问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../搜索引擎/es/Lucene 的存储结构概述.html">
+            
+                <a href="../搜索引擎/es/Lucene 的存储结构概述.html">
+            
+                    
+                    Lucene的存储结构概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <span>
+            
+                    
+                    solr
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../搜索引擎/solr/solr的安装.html">
+            
+                <a href="../搜索引擎/solr/solr的安装.html">
+            
+                    
+                    solr的安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../搜索引擎/solr/搜索引擎学习网站.html">
+            
+                <a href="../搜索引擎/solr/搜索引擎学习网站.html">
+            
+                    
+                    搜索引擎学习网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    安全认证
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../安全认证/数字证书原理,公钥私钥加密原理.html">
+            
+                <a href="../安全认证/数字证书原理,公钥私钥加密原理.html">
+            
+                    
+                    数字证书原理,公钥私钥加密原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../安全认证/JWT和CSRF攻击.html">
+            
+                <a href="../安全认证/JWT和CSRF攻击.html">
+            
+                    
+                    JWT和CSRF攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../安全认证/SSO单点登录思路.html">
+            
+                <a href="../安全认证/SSO单点登录思路.html">
+            
+                    
+                    SSO单点登录思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../安全认证/web安全之XSS攻击原理及防范.html">
+            
+                <a href="../安全认证/web安全之XSS攻击原理及防范.html">
+            
+                    
+                    web安全之XSS攻击原理及防范
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    设计模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="菜鸟教程设计模式.html">
+            
+                <a href="菜鸟教程设计模式.html">
+            
+                    
+                    菜鸟教程设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2" data-path="设计模式之策略模式.html">
+            
+                <a href="设计模式之策略模式.html">
+            
+                    
+                    设计模式之策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="控制反转与依赖注入原则.html">
+            
+                <a href="控制反转与依赖注入原则.html">
+            
+                    
+                    控制反转与依赖注入原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="MVC与MVVC模式.html">
+            
+                <a href="MVC与MVVC模式.html">
+            
+                    
+                    MVC与MVVC模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    redis
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="../数据库/redis/redis的启动方式.html">
+            
+                <a href="../数据库/redis/redis的启动方式.html">
+            
+                    
+                    redis的启动方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    mysql
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../数据库/mysql/MySQL事务隔离级别和实现原理.html">
+            
+                <a href="../数据库/mysql/MySQL事务隔离级别和实现原理.html">
+            
+                    
+                    MySQL事务隔离级别和实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../数据库/主键自动生成.html">
+            
+                <a href="../数据库/主键自动生成.html">
+            
+                    
+                    主键自动生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    Linux
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../Linux/linux.html">
+            
+                <a href="../Linux/linux.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../Linux/Linux系统下安装tomcat.html">
+            
+                <a href="../Linux/Linux系统下安装tomcat.html">
+            
+                    
+                    Linux系统下安装tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../Linux/Linux下运行SpringBoot项目jar包，并且输出日志.html">
+            
+                <a href="../Linux/Linux下运行SpringBoot项目jar包，并且输出日志.html">
+            
+                    
+                    Linux下运行SpringBoot项目jar包，并且输出日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    框架
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" >
+            
+                <span>
+            
+                    
+                    hibernate
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../框架/hibernate/Hibernate 教程.html">
+            
+                <a href="../框架/hibernate/Hibernate 教程.html">
+            
+                    
+                    Hibernate 教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    服务器
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" >
+            
+                <span>
+            
+                    
+                    tomcat
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1.1" data-path="../服务器/tomcat/Tomcat是如何加载Spring和SpringMVC及Servlet.html">
+            
+                <a href="../服务器/tomcat/Tomcat是如何加载Spring和SpringMVC及Servlet.html">
+            
+                    
+                    Tomcat是如何加载Spring和SpringMVC及Servlet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.2" data-path="../服务器/tomcat/ServletContainerInitializer的原理.html">
+            
+                <a href="../服务器/tomcat/ServletContainerInitializer的原理.html">
+            
+                    
+                    ServletContainerInitializer的原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    脚本语言
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../脚本语言/什么是脚本语言？.html">
+            
+                <a href="../脚本语言/什么是脚本语言？.html">
+            
+                    
+                    什么是脚本语言？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    前端
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../前端/跨域.html">
+            
+                <a href="../前端/跨域.html">
+            
+                    
+                    跨域
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >设计模式之策略模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x7B56;&#x7565;&#x6A21;&#x5F0F;">&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x4E4B;&#x7B56;&#x7565;&#x6A21;&#x5F0F;</h1>
+<p>1.&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x9009;&#x578B;---&#x884C;&#x4E3A;&#x578B;&#xFF08;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#xFF09;&#xFF0C;&#x4E3A;&#x6D88;&#x9664;if-else &#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x7684;&#x677E;&#x8026;&#x5408;&#x800C;&#x5B58;&#x5728;</p>
+<p>2.&#x601D;&#x8DEF;&#xFF1A;&#x5C06;&#x884C;&#x4E3A;&#x7684;&#x51B3;&#x7B56;&#x6743;&#x4EA4;&#x7ED9;&#x679A;&#x4E3E;&#xFF0C;&#x6709;&#x591A;&#x5C11;&#x79CD;&#x60C5;&#x51B5;&#x5C31;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x591A;&#x5C11;&#x4E2A;&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#xFF0C;&#x5339;&#x914D;&#x65F6;&#x6839;&#x636E;&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x952E;&#x503C;&#x8FDB;&#x884C;&#x51B3;&#x7B56;&#x3002;</p>
+<p>3.talk is cheap, show me the code</p>
+<p>4.&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<p>4.1&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x8D85;&#x7EA7;&#x7236;&#x7C7B;SuperInterface&#xFF0C;&#x591A;&#x4E2A;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x65F6;&#x53EF;&#x76F4;&#x63A5;&#x62FF;&#x6765;&#x590D;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-java"> <span class="hljs-number">1</span> <span class="hljs-keyword">import</span> java.util.List;
+ <span class="hljs-number">2</span> 
+ <span class="hljs-number">3</span> <span class="hljs-comment">/**
+ 4  * &#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x6700;&#x9876;&#x5C42;&#x7684;&#x7236;&#x7C7B;
+ 5  * <span class="hljs-doctag">@author</span> HUAWEI
+ 6  *
+ 7  */</span>
+ <span class="hljs-number">8</span> <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">SuperInterface</span> </span>{
+ <span class="hljs-number">9</span> 
+<span class="hljs-number">10</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">doOperation</span><span class="hljs-params">(List objs)</span></span>;
+<span class="hljs-number">11</span> 
+<span class="hljs-number">12</span> }
+</code></pre>
+<p>4.2.&#x5B9A;&#x4E49;&#x4E1A;&#x52A1;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF0C;&#x6B64;&#x5904;&#x501F;&#x7528;&#x52A0;&#x51CF;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#xFF08;OperationAdd&#xFF09;</p>
+<pre><code class="lang-java"> <span class="hljs-number">1</span> <span class="hljs-keyword">import</span> java.util.List;
+ <span class="hljs-number">2</span> 
+ <span class="hljs-number">3</span> <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OperationAdd</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SuperInterface</span> </span>{
+ <span class="hljs-number">4</span> 
+ <span class="hljs-number">5</span>     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> OperationAdd add = <span class="hljs-keyword">null</span>;
+ <span class="hljs-number">6</span> 
+ <span class="hljs-number">7</span>     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">OperationAdd</span><span class="hljs-params">()</span></span>{}
+ <span class="hljs-number">8</span>     
+ <span class="hljs-number">9</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> OperationAdd <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>{
+<span class="hljs-number">10</span>         <span class="hljs-keyword">if</span>(add == <span class="hljs-keyword">null</span>){
+<span class="hljs-number">11</span>             <span class="hljs-keyword">synchronized</span> (OperationAdd.class) {
+<span class="hljs-number">12</span>                 add = <span class="hljs-keyword">new</span> OperationAdd();
+<span class="hljs-number">13</span>             }
+<span class="hljs-number">14</span>         }
+<span class="hljs-number">15</span>         <span class="hljs-keyword">return</span> add;
+<span class="hljs-number">16</span>     }
+<span class="hljs-number">17</span>     <span class="hljs-meta">@Override</span>
+<span class="hljs-number">18</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">doOperation</span><span class="hljs-params">(List objs)</span> </span>{
+<span class="hljs-number">19</span>         <span class="hljs-keyword">double</span> sum = <span class="hljs-number">0</span>;
+<span class="hljs-number">20</span>         <span class="hljs-keyword">for</span>(Object obj:objs){
+<span class="hljs-number">21</span>             <span class="hljs-keyword">double</span> temp = Double.valueOf(obj.toString());
+<span class="hljs-number">22</span>             sum += temp;
+<span class="hljs-number">23</span>         }
+<span class="hljs-number">24</span>         <span class="hljs-keyword">return</span> sum;
+<span class="hljs-number">25</span>     }
+<span class="hljs-number">26</span> 
+<span class="hljs-number">27</span> }
+</code></pre>
+<p>4.3.&#x5B9A;&#x4E49;&#x4E1A;&#x52A1;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF0C;&#x6B64;&#x5904;&#x501F;&#x7528;&#x52A0;&#x51CF;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#xFF08;OperationSub&#xFF09;</p>
+<pre><code class="lang-java"> <span class="hljs-number">1</span> <span class="hljs-keyword">import</span> java.util.List;
+ <span class="hljs-number">2</span> 
+ <span class="hljs-number">3</span> <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OperationSub</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SuperInterface</span> </span>{
+ <span class="hljs-number">4</span> 
+ <span class="hljs-number">5</span> 
+ <span class="hljs-number">6</span>     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">OperationSub</span><span class="hljs-params">()</span></span>{}
+ <span class="hljs-number">7</span>     
+ <span class="hljs-number">8</span>     <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> OperationSub sub = <span class="hljs-keyword">null</span>;
+ <span class="hljs-number">9</span>     
+<span class="hljs-number">10</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> OperationSub <span class="hljs-title">getInstance</span><span class="hljs-params">()</span></span>{
+<span class="hljs-number">11</span>         <span class="hljs-keyword">if</span>(sub == <span class="hljs-keyword">null</span>){
+<span class="hljs-number">12</span>             <span class="hljs-keyword">synchronized</span> (OperationSub.class) {
+<span class="hljs-number">13</span>                 sub = <span class="hljs-keyword">new</span> OperationSub();
+<span class="hljs-number">14</span>             }
+<span class="hljs-number">15</span>         }
+<span class="hljs-number">16</span>         <span class="hljs-keyword">return</span> sub;
+<span class="hljs-number">17</span>     }
+<span class="hljs-number">18</span>     <span class="hljs-meta">@Override</span>
+<span class="hljs-number">19</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">doOperation</span><span class="hljs-params">(List objs)</span> </span>{
+<span class="hljs-number">20</span>         <span class="hljs-keyword">double</span> First = Double.valueOf(objs.get(<span class="hljs-number">0</span>).toString());
+<span class="hljs-number">21</span>         <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;
+<span class="hljs-number">22</span>         <span class="hljs-keyword">for</span>(Object d:objs){
+<span class="hljs-number">23</span>             <span class="hljs-keyword">if</span>(i == <span class="hljs-number">0</span>){
+<span class="hljs-number">24</span>                 i =<span class="hljs-number">1</span>;
+<span class="hljs-number">25</span>                 <span class="hljs-keyword">continue</span>;
+<span class="hljs-number">26</span>             }
+<span class="hljs-number">27</span>             <span class="hljs-keyword">double</span> temp = Double.valueOf(d.toString());
+<span class="hljs-number">28</span>             First -= temp;
+<span class="hljs-number">29</span>         }
+<span class="hljs-number">30</span>         <span class="hljs-keyword">return</span> First;
+<span class="hljs-number">31</span>     }
+<span class="hljs-number">32</span> 
+<span class="hljs-number">33</span> }
+</code></pre>
+<p>4.4.&#x679A;&#x4E3E;&#x7C7B;&#x5B9A;&#x4E49;&#xFF08;OperType&#xFF09;</p>
+<pre><code class="lang-java"> <span class="hljs-number">1</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> OperType {
+ <span class="hljs-number">2</span> 
+ <span class="hljs-number">3</span>     ADD(<span class="hljs-number">1</span>,OperationAdd.getInstance()),SUB(<span class="hljs-number">2</span>,OperationSub.getInstance());
+ <span class="hljs-number">4</span>     <span class="hljs-keyword">private</span> Integer code;
+ <span class="hljs-number">5</span>     <span class="hljs-keyword">private</span> SuperInterface option;
+ <span class="hljs-number">6</span>     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">OperType</span><span class="hljs-params">(Integer code,SuperInterface option)</span></span>{
+ <span class="hljs-number">7</span>         <span class="hljs-keyword">this</span>.setCode(code);
+ <span class="hljs-number">8</span>         <span class="hljs-keyword">this</span>.setOption(option);
+ <span class="hljs-number">9</span>     }
+<span class="hljs-number">10</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> SuperInterface <span class="hljs-title">getOption</span><span class="hljs-params">()</span> </span>{
+<span class="hljs-number">11</span>         <span class="hljs-keyword">return</span> option;
+<span class="hljs-number">12</span>     }
+<span class="hljs-number">13</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setOption</span><span class="hljs-params">(SuperInterface option)</span> </span>{
+<span class="hljs-number">14</span>         <span class="hljs-keyword">this</span>.option = option;
+<span class="hljs-number">15</span>     }
+<span class="hljs-number">16</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getCode</span><span class="hljs-params">()</span> </span>{
+<span class="hljs-number">17</span>         <span class="hljs-keyword">return</span> code;
+<span class="hljs-number">18</span>     }
+<span class="hljs-number">19</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCode</span><span class="hljs-params">(Integer code)</span> </span>{
+<span class="hljs-number">20</span>         <span class="hljs-keyword">this</span>.code = code;
+<span class="hljs-number">21</span>     }
+<span class="hljs-number">22</span> }
+</code></pre>
+<p>4.5.&#x4E1A;&#x52A1;&#x5177;&#x4F53;&#x7C7B;&#xFF08;test&#xFF09;</p>
+<pre><code class="lang-java"> <span class="hljs-number">1</span> <span class="hljs-keyword">import</span> java.util.HashMap;
+ <span class="hljs-number">2</span> <span class="hljs-keyword">import</span> java.util.Map;
+ <span class="hljs-number">3</span> 
+ <span class="hljs-number">4</span> <span class="hljs-keyword">import</span> net.sf.json.JSONArray;
+ <span class="hljs-number">5</span> 
+ <span class="hljs-number">6</span> 
+ <span class="hljs-number">7</span> 
+ <span class="hljs-number">8</span> 
+ <span class="hljs-number">9</span> <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">test</span> </span>{
+<span class="hljs-number">10</span> 
+<span class="hljs-number">11</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+<span class="hljs-number">12</span>         Map request = <span class="hljs-keyword">new</span> HashMap&lt;String, String&gt;();
+<span class="hljs-number">13</span>         request.put(<span class="hljs-string">&quot;type&quot;</span>, <span class="hljs-string">&quot;SUB&quot;</span>);
+<span class="hljs-number">14</span>         request.put(<span class="hljs-string">&quot;data&quot;</span>, <span class="hljs-string">&quot;[100,20,30]&quot;</span>);
+<span class="hljs-number">15</span>         doOperation(request);
+<span class="hljs-number">16</span>     }
+<span class="hljs-number">17</span>     
+<span class="hljs-number">18</span>     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doOperation</span><span class="hljs-params">(Map&lt;String,String&gt; request)</span></span>{
+<span class="hljs-number">19</span>         <span class="hljs-keyword">try</span>{
+<span class="hljs-number">20</span>             String type = request.get(<span class="hljs-string">&quot;type&quot;</span>);
+<span class="hljs-number">21</span>             String data = request.get(<span class="hljs-string">&quot;data&quot;</span>);
+<span class="hljs-number">22</span>             JSONArray array = JSONArray.fromObject(data);
+<span class="hljs-number">23</span>             OperType optype = OperType.valueOf(type);
+<span class="hljs-number">24</span>             SuperInterface add = optype.getOption();
+<span class="hljs-number">25</span>             Object res = add.doOperation(array);
+<span class="hljs-number">26</span>             System.out.println(<span class="hljs-string">&quot;add res:&quot;</span>+res);
+<span class="hljs-number">27</span>         }<span class="hljs-keyword">catch</span>(Exception e){
+<span class="hljs-number">28</span>             System.out.println(<span class="hljs-string">&quot;&#x6267;&#x884C;&#x51FA;&#x9519;&quot;</span>);
+<span class="hljs-number">29</span>             e.printStackTrace();
+<span class="hljs-number">30</span>         }
+<span class="hljs-number">31</span>     }
+<span class="hljs-number">32</span> }
+</code></pre>
+<p><a href="javascript:void(0" target="_blank"><img src="https://common.cnblogs.com/images/copycode.gif" alt="&#x590D;&#x5236;&#x4EE3;&#x7801;"></a>;)</p>
+<p>5.&#x8BF4;&#x660E;:&#x5177;&#x4F53;&#x7C7B;&#x5B9E;&#x73B0;&#x65F6;&#x7528;&#x5230;&#x4E86;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x907F;&#x514D;&#x591A;&#x6B21;&#x5B9E;&#x4F8B;&#x5316;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6D6A;&#x8D39;&#xFF0C;&#x4F7F;&#x7528;&#x679A;&#x4E3E;&#x6709;&#x4E9B;&#x7C7B;&#x4F3C;switch&#x5F62;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x5177;&#x4F53;&#x5339;&#x914D;&#x9700;&#x8981;&#x4EA4;&#x7ED9;&#x524D;&#x7AEF;&#x4F20;&#x503C;&#x6765;&#x8C03;&#x7528;&#xFF0C;&#x60C5;&#x51B5;&#x8FC7;&#x591A;&#x65F6;&#x524D;&#x540E;&#x53F0;&#x4EA4;&#x4E92;&#x7684;&#x60C5;&#x51B5;&#x8FC7;&#x591A;&#xFF0C;&#x4E0D;&#x5229;&#x4E8E;&#x524D;&#x7AEF;&#x4EE3;&#x7801;&#x7684;&#x66F4;&#x6539;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="菜鸟教程设计模式.html" class="navigation navigation-prev " aria-label="Previous page: 菜鸟教程设计模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="控制反转与依赖注入原则.html" class="navigation navigation-next " aria-label="Next page: 控制反转与依赖注入原则">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"设计模式之策略模式","level":"1.6.2","depth":2,"next":{"title":"控制反转与依赖注入原则","level":"1.6.3","depth":2,"path":"设计模式/控制反转与依赖注入原则.md","ref":"设计模式/控制反转与依赖注入原则.md","articles":[]},"previous":{"title":"菜鸟教程设计模式","level":"1.6.1","depth":2,"path":"设计模式/菜鸟教程设计模式.md","ref":"设计模式/菜鸟教程设计模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"设计模式/设计模式之策略模式.md","mtime":"2020-12-14T01:48:52.017Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-04T08:50:41.658Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
