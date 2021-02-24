@@ -1,0 +1,1093 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MySQL事务隔离级别和实现原理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../主键自动生成.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Spring
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../Spring/静态变量注入bean.html">
+            
+                <a href="../../Spring/静态变量注入bean.html">
+            
+                    
+                    静态变量注入bean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../Spring/SpringMVC拦截器原理.html">
+            
+                <a href="../../Spring/SpringMVC拦截器原理.html">
+            
+                    
+                    SpringMVC 拦截器原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../Spring/SpringSecurity入门原理及实战.html">
+            
+                <a href="../../Spring/SpringSecurity入门原理及实战.html">
+            
+                    
+                    Spring Security 入门原理及实战
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../Spring/ThreadPoolTaskExecutor和ThreadPoolExecutor区别.html">
+            
+                <a href="../../Spring/ThreadPoolTaskExecutor和ThreadPoolExecutor区别.html">
+            
+                    
+                    ThreadPoolTaskExecutor和ThreadPoolExecutor区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Java
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../Java/注解的本质.html">
+            
+                <a href="../../Java/注解的本质.html">
+            
+                    
+                    注解的本质
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../Java/反射.html">
+            
+                <a href="../../Java/反射.html">
+            
+                    
+                    反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../Java/Java异常处理.html">
+            
+                <a href="../../Java/Java异常处理.html">
+            
+                    
+                    Java异常处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../Java/Java IO：阻塞非阻塞式IO、同步异步IO.html">
+            
+                <a href="../../Java/Java IO：阻塞非阻塞式IO、同步异步IO.html">
+            
+                    
+                    Java IO：阻塞非阻塞式IO、同步异步IO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../Java/JavaGuide.html">
+            
+                <a href="../../Java/JavaGuide.html">
+            
+                    
+                    JavaGuide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    搜索引擎
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    es
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../搜索引擎/es/Elasticsearch 入门 _bulk 批量导入数据.html">
+            
+                <a href="../../搜索引擎/es/Elasticsearch 入门 _bulk 批量导入数据.html">
+            
+                    
+                    Elasticsearch入门_bulk 批量导入数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../搜索引擎/es/Elasticsearch内核解析 - 数据模型篇.html">
+            
+                <a href="../../搜索引擎/es/Elasticsearch内核解析 - 数据模型篇.html">
+            
+                    
+                    Elasticsearch内核解析-数据模型篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../../搜索引擎/es/es 更新延迟问题.html">
+            
+                <a href="../../搜索引擎/es/es 更新延迟问题.html">
+            
+                    
+                    es更新延迟问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../../搜索引擎/es/Lucene 的存储结构概述.html">
+            
+                <a href="../../搜索引擎/es/Lucene 的存储结构概述.html">
+            
+                    
+                    Lucene的存储结构概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" >
+            
+                <span>
+            
+                    
+                    solr
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../../搜索引擎/solr/solr的安装.html">
+            
+                <a href="../../搜索引擎/solr/solr的安装.html">
+            
+                    
+                    solr的安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../../搜索引擎/solr/搜索引擎学习网站.html">
+            
+                <a href="../../搜索引擎/solr/搜索引擎学习网站.html">
+            
+                    
+                    搜索引擎学习网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    安全认证
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../安全认证/CSRF概念.html">
+            
+                <a href="../../安全认证/CSRF概念.html">
+            
+                    
+                    CSRF概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../安全认证/数字证书原理,公钥私钥加密原理.html">
+            
+                <a href="../../安全认证/数字证书原理,公钥私钥加密原理.html">
+            
+                    
+                    数字证书原理,公钥私钥加密原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../安全认证/JWT和CSRF攻击.html">
+            
+                <a href="../../安全认证/JWT和CSRF攻击.html">
+            
+                    
+                    JWT和CSRF攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../安全认证/SSO单点登录思路.html">
+            
+                <a href="../../安全认证/SSO单点登录思路.html">
+            
+                    
+                    SSO单点登录思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../安全认证/web安全之XSS攻击原理及防范.html">
+            
+                <a href="../../安全认证/web安全之XSS攻击原理及防范.html">
+            
+                    
+                    web安全之XSS攻击原理及防范
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    设计模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../设计模式/菜鸟教程设计模式.html">
+            
+                <a href="../../设计模式/菜鸟教程设计模式.html">
+            
+                    
+                    菜鸟教程设计模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../设计模式/设计模式之策略模式.html">
+            
+                <a href="../../设计模式/设计模式之策略模式.html">
+            
+                    
+                    设计模式之策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../设计模式/控制反转与依赖注入原则.html">
+            
+                <a href="../../设计模式/控制反转与依赖注入原则.html">
+            
+                    
+                    控制反转与依赖注入原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../../设计模式/MVC与MVVC模式.html">
+            
+                <a href="../../设计模式/MVC与MVVC模式.html">
+            
+                    
+                    MVC与MVVC模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" >
+            
+                <span>
+            
+                    
+                    redis
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="../redis/redis的启动方式.html">
+            
+                <a href="../redis/redis的启动方式.html">
+            
+                    
+                    redis的启动方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" >
+            
+                <span>
+            
+                    
+                    mysql
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.7.2.1" data-path="MySQL事务隔离级别和实现原理.html">
+            
+                <a href="MySQL事务隔离级别和实现原理.html">
+            
+                    
+                    MySQL事务隔离级别和实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../主键自动生成.html">
+            
+                <a href="../主键自动生成.html">
+            
+                    
+                    主键自动生成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../javaEE之数据库及数据源.html">
+            
+                <a href="../javaEE之数据库及数据源.html">
+            
+                    
+                    javaEE之数据库及数据源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../从jdbc规范到jdbc框架.html">
+            
+                <a href="../从jdbc规范到jdbc框架.html">
+            
+                    
+                    从jdbc规范到jdbc框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    Linux
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../../Linux/linux.html">
+            
+                <a href="../../Linux/linux.html">
+            
+                    
+                    linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../../Linux/Linux系统下安装tomcat.html">
+            
+                <a href="../../Linux/Linux系统下安装tomcat.html">
+            
+                    
+                    Linux系统下安装tomcat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../../Linux/Linux下运行SpringBoot项目jar包，并且输出日志.html">
+            
+                <a href="../../Linux/Linux下运行SpringBoot项目jar包，并且输出日志.html">
+            
+                    
+                    Linux下运行SpringBoot项目jar包，并且输出日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../../Linux/Shell是什么.html">
+            
+                <a href="../../Linux/Shell是什么.html">
+            
+                    
+                    Shell是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    框架
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" >
+            
+                <span>
+            
+                    
+                    hibernate
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../../框架/hibernate/Hibernate 教程.html">
+            
+                <a href="../../框架/hibernate/Hibernate 教程.html">
+            
+                    
+                    Hibernate 教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    服务器
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" >
+            
+                <span>
+            
+                    
+                    tomcat
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1.1" data-path="../../服务器/tomcat/Tomcat是如何加载Spring和SpringMVC及Servlet.html">
+            
+                <a href="../../服务器/tomcat/Tomcat是如何加载Spring和SpringMVC及Servlet.html">
+            
+                    
+                    Tomcat是如何加载Spring和SpringMVC及Servlet
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.2" data-path="../../服务器/tomcat/ServletContainerInitializer的原理.html">
+            
+                <a href="../../服务器/tomcat/ServletContainerInitializer的原理.html">
+            
+                    
+                    ServletContainerInitializer的原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.3" data-path="../../服务器/tomcat/idea tomcat乱码问题的解决及相关设置的步骤.html">
+            
+                <a href="../../服务器/tomcat/idea tomcat乱码问题的解决及相关设置的步骤.html">
+            
+                    
+                    idea tomcat乱码问题的解决及相关设置的步骤
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.4" data-path="../../服务器/tomcat/Tomcat是一个Servlet容器？.html">
+            
+                <a href="../../服务器/tomcat/Tomcat是一个Servlet容器？.html">
+            
+                    
+                    Tomcat是一个Servlet容器？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.1.5" data-path="../../服务器/tomcat/深入理解SPI机制.html">
+            
+                <a href="../../服务器/tomcat/深入理解SPI机制.html">
+            
+                    
+                    深入理解SPI机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    脚本语言
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../../脚本语言/什么是脚本语言？.html">
+            
+                <a href="../../脚本语言/什么是脚本语言？.html">
+            
+                    
+                    什么是脚本语言？
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    前端
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../../前端/跨域.html">
+            
+                <a href="../../前端/跨域.html">
+            
+                    
+                    跨域
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >MySQL事务隔离级别和实现原理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mysql&#x4E8B;&#x52A1;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x548C;&#x5B9E;&#x73B0;&#x539F;&#x7406;">MySQL&#x4E8B;&#x52A1;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x548C;&#x5B9E;&#x73B0;&#x539F;&#x7406;</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/117476959" target="_blank">https://zhuanlan.zhihu.com/p/117476959</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="../主键自动生成.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 主键自动生成">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"MySQL事务隔离级别和实现原理","level":"1.7.2.1","depth":3,"next":{"title":"主键自动生成","level":"1.7.3","depth":2,"path":"数据库/主键自动生成.md","ref":"数据库/主键自动生成.md","articles":[]},"previous":{"title":"mysql","level":"1.7.2","depth":2,"ref":"","articles":[{"title":"MySQL事务隔离级别和实现原理","level":"1.7.2.1","depth":3,"path":"数据库/mysql/MySQL事务隔离级别和实现原理.md","ref":"数据库/mysql/MySQL事务隔离级别和实现原理.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","livereload"],"pluginsConfig":{"expandable-chapters":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据库/mysql/MySQL事务隔离级别和实现原理.md","mtime":"2021-01-11T02:19:58.567Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-24T08:23:57.502Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
